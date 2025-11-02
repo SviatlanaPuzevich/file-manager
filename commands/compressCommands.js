@@ -13,7 +13,7 @@ const compressCommand = async (positionArgs) => {
   try {
     const brotliCompress = zlib.createBrotliCompress()
     const readStream = fs.createReadStream(fileName);
-    const writeStream = fs.createWriteStream(path.join(targetPath, `${path.basename(fileName)}.gz`));
+    const writeStream = fs.createWriteStream(path.join(targetPath, `${path.basename(fileName)}.br`));
     await pipeline(readStream, brotliCompress, writeStream);
   } catch (error) {
     if (error.code === 'ENOENT' || error.code === 'EISDIR') {
@@ -31,12 +31,11 @@ const decompressCommand = async (params) => {
   const fileName = params[0];
   const targetPath = params[1];
   try {
-    // const archiveName = path.basename(fileName, path.extname(fileName));
-    // const destDir = path.join(path.dirname(fileName), archiveName);
-    // await fs.mkdir(destDir, { recursive: true });
+    const archiveName = path.basename(fileName, path.extname(fileName));
+    const destDir = path.join(targetPath, archiveName);
     const brotliDecompress = zlib.createBrotliDecompress()
     const readStream = fs.createReadStream(fileName);
-    const writeStream = fs.createWriteStream(path.join(targetPath));
+    const writeStream = fs.createWriteStream(destDir);
     await pipeline(readStream, brotliDecompress, writeStream);
   } catch (error) {
     if (error.code === 'ENOENT' || error.code === 'EISDIR') {

@@ -1,7 +1,7 @@
 # Scoring: File Manager
 1. Task: https://github.com/AlreadyBored/nodejs-assignments/blob/main/assignments/file-manager/assignment.md
 2. Done - 2025-11-02/ deadline 2025-11-03
-3. Score: 210 / 330
+3. Score: 330 / 330
 ## Basic Scope
 - General
   > * [x] **+6** Application accepts username and prints proper message
@@ -31,7 +31,7 @@
   > * [x]  **+20** Calculate hash for file
 - Compress and decompress operations
   > * [x]  **+20** Compress file (using Brotli algorithm)
-  > * [ ]  **+20** Decompress file (using Brotli algorithm)
+  > * [x]  **+20** Decompress file (using Brotli algorithm)
 
 ## Advanced Scope
 

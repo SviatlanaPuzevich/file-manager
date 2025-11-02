@@ -4,7 +4,6 @@ import os from 'node:os'
 const FLAG_VALUES = ['EOL', 'cpus', 'homedir', 'username', 'architecture'];
 
 const osCommand = async (positionArgs, flags) => {
-  console.log(flags);
   if (!flags || flags.length === 0 || !FLAG_VALUES.includes(flags[0])) {
     throw new InvalidInputError()
   }
